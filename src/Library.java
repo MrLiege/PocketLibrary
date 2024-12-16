@@ -11,14 +11,19 @@ public class Library {
     }
 
     public void addBook(Book book) {
-        bookList.add(book);
+        for (Book b : bookList) {
+            if (b.isTitle().equals(book.isTitle()) && b.isAuthor().equals(book.isAuthor())) {
+                System.out.println("Книга уже существует в библиотеке: " + book.isTitle());
+                return;
+            }
+        } bookList.add(book);
     }
 
     public void printAvailableBooks() {
         System.out.println("Список доступгых книг в библиотеке:");
 
         for (Book book : bookList) {
-            if (book.getIsAvailable()) {
+            if (book.isAvailable()) {
                 book.displayInfo();
             }
         }
@@ -27,7 +32,7 @@ public class Library {
         List<Book> authorsBook = new ArrayList<>();
         System.out.println("Результат: \n");
         for (Book book : bookList) {
-                if (book.getAuthor() == author) {
+                if (book.isAuthor() == author) {
                     authorsBook.add(book);
             }
         }

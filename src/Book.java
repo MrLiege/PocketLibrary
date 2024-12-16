@@ -1,8 +1,8 @@
 public class Book {
     private String title;
     private String author;
-    private int year;
-    private boolean isAvailable = true;
+    private Integer year;
+    private Boolean isAvailable;
 
     public Book(String title, String author, int year, boolean isAvailable) {
         this.title = title;
@@ -15,13 +15,18 @@ public class Book {
         this.title = title;
         this.author = author;
         this.year = year;
+        this.isAvailable = true;
     }
 
-    public String getAuthor() {
+    public String isTitle() {
+        return title;
+    }
+
+    public String isAuthor() {
         return author;
     }
 
-    public boolean getIsAvailable() {
+    public boolean isAvailable() {
         return isAvailable;
     }
 
@@ -29,12 +34,18 @@ public class Book {
         if (isAvailable) {
             isAvailable = false;
             System.out.println("Вы одолжили книгу: <<" + title + ">>!\n");
+        } else {
+            System.out.println("Книга <<" + title + ">> уже занята!\n");
         }
     }
 
     public void returnBook() {
-        isAvailable = true;
-        System.out.println("Книга <<" + title +">>на месте!\n");
+        if (!isAvailable) {
+            isAvailable = true;
+            System.out.println("Книга <<" + title + ">>на месте!\n");
+        } else {
+            System.out.println("Книга <<" + title + ">> уже занята!\n");
+        }
     }
 
     public void displayInfo() {

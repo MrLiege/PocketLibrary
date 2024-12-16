@@ -18,5 +18,11 @@ public class Main {
         book3.borrowBook();
         System.out.println("==Доступные книги:== ");
         library.printAvailableBooks();
+
+        Book book4 = new Book("Философия JAVA", "Брюс Эккель", 2024);
+        library.addBook(book4);
+
+        System.out.println("==Доступные книги:== ");
+        library.printAvailableBooks();
     }
 }
